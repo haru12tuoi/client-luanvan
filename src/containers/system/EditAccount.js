@@ -14,7 +14,7 @@ const EditAccount = () => {
     const dispatch = useDispatch()
     const [payload, setPayload] = useState({
         // name: currentData?.name || '',
-        // avatar: blobToBase64(currentData?.avatar) || '',
+        avatar: currentData?.avatar && blobToBase64(currentData?.avatar) || '',
         fbUrl: currentData?.fbUrl || '',
         zalo: currentData?.zalo || '',
     })
@@ -53,7 +53,8 @@ const EditAccount = () => {
                     <div className='flex mb-5'>
                         <label className='w-48 flex-none' htmlFor='avatar'>Ảnh đại diện</label>
                         <div>
-                            <img src={currentData?.avatar && blobToBase64(currentData?.avatar) || anonAvatar} alt='avatar' className='w-28 h-28 rounded-full object-cover' />
+                            {/* <img src={currentData?.avatar && blobToBase64(currentData?.avatar) || anonAvatar} alt='avatar' className='w-28 h-28 rounded-full object-cover' /> */}
+                            <img src={payload?.avatar || anonAvatar} alt='avatar' className='w-28 h-28 rounded-full object-cover' />
                             <input onChange={handleUploadFile} type='file' id='avatar' className='appearance-none my-4' />
                         </div>
                     </div>
